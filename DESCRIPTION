@@ -13,7 +13,7 @@ Description: BiocSet displays different biological sets in a triple tibble
     functions from the dplyr package. Mapping functionality and accessing web
     references for elements/sets are also available in BiocSet.
 Depends: R (>= 3.6),
-    dplyr
+    dplyr (>= 1.0.0)
 Imports: methods,
     tibble,
     utils,
