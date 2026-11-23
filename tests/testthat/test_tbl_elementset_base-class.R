@@ -116,15 +116,19 @@ test_that("'summarise.tbl_elementset_base()' works", {
     expect_s3_class(es1, "tbl_elementset")
     expect_identical(class(es1), c("tbl_elementset", tbl))
     expect_length(class(es1), 5)
+    if (packageVersion("dplyr") < "1.2.0") {
     es1_2 <- es %>% select(set) %>% summarise(set)
     expect_identical(es1_2$set, es$set)
+    }
 
     es2 <- .tbl_element(es) %>% select(element) %>% summarise(n = n())
     expect_s3_class(es2,"tbl_element")
     expect_identical(class(es2), c("tbl_element", tbl))
     expect_length(class(es2), 5)
+    if (packageVersion("dplyr") < "1.2.0") {
     es2_2 <- es %>% select(element) %>% summarise(element)
     expect_identical(es2_2$element, es$element)
+    }
 
     es3 <- .tbl_set(es) %>% select(set) %>% summarise(n = n())
     expect_s3_class(es3, "tbl_set")
